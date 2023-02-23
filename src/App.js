@@ -1,27 +1,19 @@
-import React, { useState } from 'react';
-import HomePage from './components/HomePage';
-import AddAccount from './components/AppAccount';
-import SchedulePosts from './components/SchedulePosts';
-import'./styles/style.css'
-function App() {
-  const [selectedAccount, setSelectedAccount] = useState(null);
+import React from 'react';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import AccountList from './components/AccountList.jsx';
+import AddAccountForm from './components/AddAccount.jsx';
+import './styles/style.css'
 
-  // render selected account's schedule posts component
-  const renderSelectedAccount = () => {
-    if (selectedAccount === null) {
-      return null;
-    }
-    return <SchedulePosts accountName={selectedAccount} />;
-  }
-
-  // render the app
+const App = () => {
   return (
     <div>
-      <HomePage onSelectAccount={setSelectedAccount} />
-      <AddAccount onAddAccount={() => setSelectedAccount(null)} />
-      {renderSelectedAccount()}
+      <Header />
+      <AccountList />
+      <AddAccountForm />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

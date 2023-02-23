@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import AddAccount from './AddAccount';
+import { testAccounts } from '../store/Data';
 import '../styles/style.css'
 
 function HomePage() {
@@ -17,15 +19,16 @@ function HomePage() {
           <h1 className="text-2xl font-bold text-gray-800">Instagram Post Scheduler</h1>
         </div>
         <ul className="bg-white rounded-md border border-gray-200 divide-y divide-gray-200">
-          {accounts.map((account, index) => (
+          {testAccounts.map((account, index) => (
             <li key={index} className="px-6 py-4 hover:bg-gray-50">
-              <div className="flex items-center">
-                <img className="w-8 h-8 rounded-full mr-3" src="https://source.unsplash.com/random/32x32?face" alt="User profile" />
-                <div className="text-sm font-medium text-gray-800">{account}</div>
-              </div>
+              <a href={account.imageUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <img className="w-8 h-8 rounded-full mr-3" src="https://picsum.photos/200" alt="User profile" />
+                <div className="text-lg font-medium text-gray-800">{testAccounts}</div>
+              </a>
             </li>
           ))}
         </ul>
+        <AddAccount onAddAccount={addAccount} />
       </div>
     </div>
   );
