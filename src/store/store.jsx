@@ -9,3 +9,5 @@ const useAccountsStore = create((set) => ({
     })),
 }));
 export default useAccountsStore;
+
+// Path: src/store/store.jsx

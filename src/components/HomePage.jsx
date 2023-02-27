@@ -1,37 +1,34 @@
-import { useState } from 'react';
-import AddAccount from './AddAccount';
-import { testAccounts } from '../store/Data';
+import React from 'react';
+import userData from '../store/Data';
+import AccountList from './AccountList';
 import '../styles/style.css'
 
-function HomePage() {
-  const [accounts, setAccounts] = useState([]);
-
-  // function to add new account
-  const addAccount = (newAccount) => {
-    setAccounts([...accounts, newAccount]);
-  }
-
-  // render the list of accounts
+const HomePage = () => {
   return (
-    <div className="bg-white flex flex-col items-center justify-center min-h-screen">
-      <div className="w-full max-w-xs">
-        <div className="flex flex-col items-center justify-center mb-4">
-          <h1 className="text-2xl font-bold text-gray-800">Instagram Post Scheduler</h1>
-        </div>
-        <ul className="bg-white rounded-md border border-gray-200 divide-y divide-gray-200">
-          {testAccounts.map((account, index) => (
-            <li key={index} className="px-6 py-4 hover:bg-gray-50">
-              <a href={account.imageUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <img className="w-8 h-8 rounded-full mr-3" src="https://picsum.photos/200" alt="User profile" />
-                <div className="text-lg font-medium text-gray-800">{testAccounts}</div>
-              </a>
-            </li>
-          ))}
-        </ul>
-        <AddAccount onAddAccount={addAccount} />
+    <div>
+      <div className="grid grid-cols-4 gap-5 h-screen p-9">
+        {userData.map((user) => (
+          <div key={user.id}>
+            <div className="bg-black p-4 rounded-lg">
+              <div className="flex justify-between mb-2">
+                <div className="flex items-center">
+                  <img className="w-10 h-10 rounded-full mr-2" src={user.profilePhoto} alt={`${user.username} profile`} />
+                  <h2 className="text-lg text-white font-medium">{user.username}</h2>
+                </div>
+                <div className="flex space-x-2">
+                  <button className="bg-blue-500 text-white px-4 py-2 rounded-md">Follow</button>
+                  <button className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md">
+                    <a href={`/schedule/${user.id}`}>Schedule</a>
+                  </button>
+                </div>
+              </div>
+              <AccountList user={user} />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
-}
+};
 
 export default HomePage;
