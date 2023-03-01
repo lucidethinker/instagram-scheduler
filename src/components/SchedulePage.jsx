@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate , useParams } from 'react-router-dom';
+import { useNavigate , useParams,Link } from 'react-router-dom';
 import useAccountsStore from '../store/store';
 import userData from '../store/Data';
 
@@ -75,9 +75,18 @@ const SchedulePage = () => {
             </button>
             <button
               className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-2"
-              onClick={() => history.push('/pending')}
+             
               >
+            <Link to={`/Pending/${user.id}`}>
             Pending Posts
+            </Link>
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-2"
+              >
+             <Link to={`/PostList/${user.id}`}>
+             All Posts
+             </Link>
             </button>
           </form>
         </div>
