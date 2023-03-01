@@ -4,6 +4,8 @@ import Footer from './components/Footer.jsx';
 import HomePage from './components/HomePage.jsx';
 import SchedulePage from './components/SchedulePage.jsx';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import AddAccountForm from './components/AddAccount.jsx';
 import Pending from './components/Pending.jsx';
 import PostList from './components/PostList.jsx';
@@ -14,6 +16,7 @@ const App = () => {
   return (
     <Router>
     <div>
+    
       <Header />
       <Routes>
           <Route path="/" element={<HomePage />}/>

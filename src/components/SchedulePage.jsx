@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate , useParams,Link } from 'react-router-dom';
+
+
 import useAccountsStore from '../store/store';
 import userData from '../store/Data';
 
@@ -16,12 +18,14 @@ const SchedulePage = () => {
   // handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+      
     addScheduledPost(post, user.id);
-   
+     
     history.push('/');
+  
+    
   };
-
+  
   return (
     <div className="p-10">
       <div className="flex items-center mb-5">

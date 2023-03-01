@@ -23,9 +23,6 @@ const AccountList = () => {
                 {account.username}</h2>
             </div>
             <div className="flex space-x-2">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
-                Follow
-              </button>
               <button className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md">
                 <Link to={`/ShedulePosts/${account.id}`}>Schedule Post</Link>
               </button>
