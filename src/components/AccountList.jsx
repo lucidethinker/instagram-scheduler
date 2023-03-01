@@ -1,29 +1,37 @@
-import React from 'react';
-import useAccountsStore from '../store/store';
-import { Link } from 'react-router-dom';
-import '../styles/style.css';
+import React from "react";
+import useAccountsStore from "../store/store";
+import { Link } from "react-router-dom";
+import "../styles/style.css";
 
 const AccountList = () => {
   const accounts = useAccountsStore((state) => state.accounts);
-  const removeAccount = useAccountsStore((state) => state.removeAccount);
 
   return (
-    <div className="space-y-4">
+    <div className="grid grid-cols-3 gap-5 h-screen p-9">
       {accounts.map((account) => (
-        <div key={account.id} className="border border-gray-300 p-4">
+        <div key={account.id} >
+          <div className="bg-black p-5 rounded-lg">
+          <div className="flex justify-between mb-2">
           <div className="flex items-center">
-            <img src="https://via.placeholder.com/50" alt="Profile" className="h-10 w-10 rounded-full mr-4" />
-            <div className="flex-grow">
-              <h2 className="font-medium text-lg">{account.username}</h2>
-              <span className="text-gray-500">@{account.username}</span>
+            <img
+               className="w-10 h-10 rounded-full mr-2"
+               src={account.profilePhoto} 
+               alt={`${account.username} profile`}               
+            />
+              <h2 
+              className="text-lg text-white font-medium">
+                {account.username}</h2>
             </div>
-            <div className="space-x-4">
-              <button className="bg-blue-500 text-white py-2 px-4 rounded-full">Follow</button>
-              <button className="bg-gray-300 text-gray-700 py-2 px-4 rounded-full">
-                <Link to={`/schedule/${account.id}`}>Schedule Post</Link>
+            <div className="flex space-x-2">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                Follow
+              </button>
+              <button className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md">
+                <Link to={`/ShedulePosts/${account.id}`}>Schedule Post</Link>
               </button>
             </div>
           </div>
+        </div>
         </div>
       ))}
     </div>
@@ -31,3 +39,7 @@ const AccountList = () => {
 };
 
 export default AccountList;
+
+
+
+// Path: src/components/AccountList.jsx

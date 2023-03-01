@@ -2,6 +2,7 @@ const userData = [
   {
     id: 1,
     username: "john_doe",
+    profilePhoto:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     password: "password123",
     posts: [
       {
@@ -22,6 +23,7 @@ const userData = [
     id: 2,
     username: "jane_smith",
     password: "password456",
+    profilePhoto:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     posts: [
       {
         id: 1,
@@ -40,4 +42,4 @@ const userData = [
 ];
 export default userData;
 
-// Path: src/store/Actions.js
+ 

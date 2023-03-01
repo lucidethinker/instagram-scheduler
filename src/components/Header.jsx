@@ -9,7 +9,9 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4">
         <nav className="flex justify-between items-center">
           <div className="flex items-center">
+            <Link to = '/'>
             <img src="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png" alt="Instagram logo" className="h-8 w-8 mr-2" />
+            </Link>
             <h1 className="text-2xl font-bold">Post Scheduler</h1>
           </div>
           <ul className="flex items-center">
